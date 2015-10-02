@@ -1,16 +1,5 @@
 package com.octo.android.robospice;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
-
-import roboguice.util.temp.Ln;
-
 import android.app.Application;
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -19,7 +8,6 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
-
 import com.octo.android.robospice.networkstate.DefaultNetworkStateChecker;
 import com.octo.android.robospice.networkstate.NetworkStateChecker;
 import com.octo.android.robospice.persistence.CacheManager;
@@ -39,6 +27,16 @@ import com.octo.android.robospice.request.listener.SpiceServiceListener;
 import com.octo.android.robospice.request.notifier.DefaultRequestListenerNotifier;
 import com.octo.android.robospice.request.notifier.RequestListenerNotifier;
 import com.octo.android.robospice.request.notifier.SpiceServiceListenerNotifier;
+import roboguice.util.temp.Ln;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * This is an abstract class used to manage the cache and provide web service
@@ -281,7 +279,7 @@ public abstract class SpiceService extends Service {
             notification.icon = getApplicationInfo().icon;
             // temporary fix https://github.com/octo-online/robospice/issues/200
             PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, new Intent(), 0);
-            notification.setLatestEventInfo(this, "", "", pendingIntent);
+//            notification.setLatestEventInfo(this, "", "", pendingIntent);
             notification.tickerText = null;
             notification.when = System.currentTimeMillis();
         }
